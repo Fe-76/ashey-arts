@@ -1,0 +1,140 @@
+.section {
+  position: relative;
+  height: 92vh;
+  min-height: 640px;
+  overflow: hidden;
+  background: var(--zone-arts);
+}
+
+.imageWrap {
+  position: absolute;
+  top: -8%;
+  right: -6%;
+  width: 74%;
+  height: 116%;
+}
+
+.parallaxLayer {
+  position: absolute;
+  inset: 0;
+  will-change: transform;
+  z-index: 1;
+}
+
+.scrim {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  background: linear-gradient(
+    100deg,
+    var(--color-dark) 0%,
+    rgba(34, 23, 41, 0.55) 32%,
+    rgba(34, 23, 41, 0) 62%
+  );
+}
+
+.caption {
+  position: absolute;
+  left: var(--space-lg);
+  bottom: var(--space-lg);
+  max-width: 30ch;
+  z-index: 2;
+}
+
+.number {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: var(--fs-display-md);
+  color: var(--color-secondary-soft);
+  display: block;
+  margin-bottom: var(--space-xs);
+}
+
+.title {
+  font-family: var(--font-display);
+  font-size: var(--fs-display-lg);
+  color: var(--color-dark-text);
+}
+
+.floatSparkle {
+  position: absolute;
+  top: 20%;
+  left: 38%;
+  z-index: 2;
+}
+
+.ghostWord {
+  position: absolute;
+  top: 8%;
+  left: var(--space-lg);
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: clamp(4rem, 9vw, 8rem);
+  line-height: 1;
+  color: color-mix(in srgb, var(--color-dark-text) 10%, transparent);
+  z-index: 1;
+  pointer-events: none;
+  user-select: none;
+}
+
+.verticalLabel {
+  position: absolute;
+  top: 50%;
+  right: var(--space-sm);
+  transform: translateY(-50%);
+  writing-mode: vertical-rl;
+  font-size: var(--fs-micro);
+  letter-spacing: 0.04em;
+  color: var(--color-secondary-soft);
+  z-index: 2;
+}
+
+.constellation {
+  position: absolute;
+  top: 12%;
+  right: 30%;
+  z-index: 2;
+}
+
+@media (max-width: 860px) {
+  .section {
+    height: auto;
+    min-height: 70vh;
+    padding-bottom: var(--space-xl);
+  }
+
+  .imageWrap {
+    position: relative;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 46vh;
+  }
+
+  .caption {
+    position: relative;
+    left: 0;
+    bottom: 0;
+    padding: var(--space-lg) var(--space-sm) 0;
+    max-width: none;
+  }
+
+  .scrim {
+    display: none;
+  }
+
+  .verticalLabel {
+    display: none;
+  }
+
+  .constellation {
+    top: 4%;
+    right: 8%;
+    transform: scale(0.75);
+  }
+
+  .ghostWord {
+    font-size: clamp(2.75rem, 16vw, 4rem);
+    left: var(--space-sm);
+  }
+}

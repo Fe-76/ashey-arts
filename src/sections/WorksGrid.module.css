@@ -1,0 +1,145 @@
+.wrap {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2xl);
+  padding: 0 var(--space-lg) var(--space-3xl);
+  background: var(--zone-works);
+}
+
+.item {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+.item.align-right {
+  align-self: flex-end;
+  text-align: right;
+}
+
+.item.align-left {
+  align-self: flex-start;
+  text-align: left;
+}
+
+.item.size-lg {
+  width: min(64%, 56rem);
+}
+
+.item.bleed.align-left {
+  margin-left: calc(var(--space-lg) * -1);
+}
+
+.item.bleed.align-right {
+  margin-right: calc(var(--space-lg) * -1);
+}
+
+.item.size-md {
+  width: min(46%, 40rem);
+}
+
+.item.size-sm {
+  width: min(32%, 26rem);
+}
+
+.frame {
+  position: relative;
+  aspect-ratio: 5 / 4;
+  overflow: hidden;
+  opacity: 0;
+  transform: translateY(48px);
+}
+
+.item.size-sm .frame {
+  aspect-ratio: 4 / 5;
+}
+
+.constellation {
+  position: absolute;
+  top: 6%;
+  right: 8%;
+  z-index: 2;
+  opacity: 0.85;
+}
+
+.overlapTitle {
+  position: absolute;
+  left: -0.15em;
+  bottom: 4%;
+  z-index: 2;
+  font-size: var(--fs-display-lg);
+  color: var(--color-dark-text);
+  text-shadow: 0 2px 24px color-mix(in srgb, var(--color-dark) 70%, transparent),
+    0 1px 3px color-mix(in srgb, var(--color-dark) 90%, transparent);
+}
+
+.parallax {
+  position: absolute;
+  inset: -6% 0;
+  will-change: transform;
+}
+
+.caption {
+  display: flex;
+  align-items: baseline;
+  gap: var(--space-sm);
+  opacity: 0;
+  transform: translateY(16px);
+}
+
+.item.align-right .caption {
+  justify-content: flex-end;
+}
+
+.number {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: var(--fs-display-md);
+  color: var(--color-secondary);
+}
+
+.category {
+  font-size: var(--fs-small);
+  color: var(--color-text-muted);
+}
+
+.title {
+  font-family: var(--font-display);
+  font-size: var(--fs-display-md);
+  color: var(--color-text);
+}
+
+@media (max-width: 860px) {
+  .wrap {
+    padding: 0 var(--space-sm) var(--space-xl);
+    gap: var(--space-xl);
+  }
+
+  .item,
+  .item.align-right,
+  .item.align-left {
+    width: 100%;
+    align-self: center;
+    text-align: left;
+  }
+
+  .item.align-right .caption {
+    justify-content: flex-start;
+  }
+
+  .frame,
+  .item.size-sm .frame {
+    aspect-ratio: 4 / 5;
+  }
+
+  .item.bleed.align-left,
+  .item.bleed.align-right {
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  .caption {
+    flex-wrap: wrap;
+  }
+}

@@ -1,0 +1,166 @@
+.section {
+  position: relative;
+  min-height: 100svh;
+  display: grid;
+  grid-template-columns: minmax(0, 0.86fr) minmax(0, 1.14fr);
+  align-items: center;
+  padding: var(--space-lg) var(--space-lg) var(--space-xl);
+  background: var(--zone-opening);
+  overflow: hidden;
+}
+
+.textCol {
+  position: relative;
+  z-index: 2;
+  padding-right: var(--space-md);
+}
+
+.mark {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2xs);
+  font-family: var(--font-ui);
+  font-size: var(--fs-small);
+  letter-spacing: 0.02em;
+  color: var(--color-text-muted);
+  margin-bottom: var(--space-md);
+}
+
+.wordmark {
+  font-family: var(--font-display);
+  font-weight: 420;
+  font-size: var(--fs-display-xl);
+  line-height: 0.98;
+  color: var(--color-text);
+  overflow: hidden;
+}
+
+.wordmarkLine {
+  display: block;
+  transform: translateY(110%);
+}
+
+.tagline {
+  margin-top: var(--space-md);
+  max-width: 30ch;
+  font-size: var(--fs-body);
+  color: var(--color-text-muted);
+  opacity: 0;
+}
+
+.tagline em {
+  font-style: italic;
+  font-family: var(--font-display);
+  color: var(--color-primary);
+}
+
+.artCol {
+  position: relative;
+  height: 84vh;
+  align-self: center;
+}
+
+.artFrame {
+  position: absolute;
+  inset: -6% -8% -6% 4%;
+  clip-path: inset(0% 0% 0% 100%);
+  z-index: 1;
+}
+
+.scrollCue {
+  position: absolute;
+  left: var(--space-lg);
+  bottom: var(--space-lg);
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+  z-index: 2;
+  opacity: 0;
+}
+
+.scrollLine {
+  width: 1px;
+  height: 46px;
+  background: var(--color-secondary);
+  position: relative;
+  overflow: hidden;
+}
+
+.scrollLine::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: -46px;
+  width: 100%;
+  height: 46px;
+  background: var(--color-primary);
+  animation: dropline 2.6s var(--ease-soft) infinite;
+}
+
+@keyframes dropline {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(92px);
+  }
+}
+
+.scrollLabel {
+  font-size: var(--fs-micro);
+  color: var(--color-text-muted);
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+}
+
+.marginNote {
+  position: absolute;
+  top: 8%;
+  left: -1.75rem;
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+  font-size: var(--fs-micro);
+  letter-spacing: 0.04em;
+  color: var(--color-secondary);
+  opacity: 0;
+  z-index: 2;
+}
+
+@media (max-width: 860px) {
+  .section {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto;
+    padding: var(--space-md) var(--space-sm) var(--space-lg);
+    min-height: 100svh;
+    gap: var(--space-md);
+  }
+
+  .textCol {
+    padding-right: 0;
+    order: 2;
+  }
+
+  .artCol {
+    order: 1;
+    height: 48vh;
+  }
+
+  .artFrame {
+    inset: 0;
+    clip-path: inset(0% 0% 0% 0%);
+  }
+
+  .scrollCue {
+    display: none;
+  }
+
+  .marginNote {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .scrollLine::after {
+    animation: none;
+  }
+}

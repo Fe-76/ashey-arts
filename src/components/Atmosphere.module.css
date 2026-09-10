@@ -1,0 +1,19 @@
+.layer {
+  position: fixed;
+  inset: 0;
+  z-index: -2;
+  background: var(--color-bg);
+  pointer-events: none;
+}
+
+.blob {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(70px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .layer {
+    background: var(--color-bg) !important;
+  }
+}

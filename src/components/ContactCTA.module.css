@@ -1,0 +1,71 @@
+.cta {
+  position: relative;
+  display: inline-flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-sm);
+  color: var(--color-text);
+  text-align: left;
+}
+
+.line1,
+.line2 {
+  display: block;
+  font-family: var(--font-display);
+  font-size: var(--fs-display-xl);
+  line-height: 1.02;
+  color: var(--color-text);
+}
+
+.line2 {
+  color: var(--color-primary);
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-sm);
+}
+
+.sparkle {
+  transition: transform 0.4s var(--ease-editorial);
+}
+
+.cta:hover .sparkle,
+.cta:focus-visible .sparkle {
+  transform: scale(1.25) rotate(12deg);
+}
+
+.rule {
+  width: 100%;
+  height: 1px;
+  background: var(--color-primary);
+  transform-origin: left;
+  transform: scaleX(0.28);
+  transition: transform 0.6s var(--ease-editorial);
+}
+
+.cta:hover .rule,
+.cta:focus-visible .rule {
+  transform: scaleX(1);
+}
+
+.tagline {
+  font-size: var(--fs-body);
+  color: var(--color-text-muted);
+  transition: transform 0.4s var(--ease-editorial);
+}
+
+.cta:hover .tagline,
+.cta:focus-visible .tagline {
+  transform: translateX(6px);
+}
+
+.cta:hover,
+.cta:focus-visible {
+  filter: drop-shadow(0 0 18px color-mix(in srgb, var(--color-primary) 35%, transparent));
+}
+
+@media (max-width: 720px) {
+  .line1,
+  .line2 {
+    font-size: var(--fs-display-lg);
+  }
+}

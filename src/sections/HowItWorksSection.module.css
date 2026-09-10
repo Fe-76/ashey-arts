@@ -1,0 +1,268 @@
+.section {
+  position: relative;
+  overflow: hidden;
+  background: var(--zone-how-it-works);
+  padding-bottom: var(--space-3xl);
+}
+
+.intro {
+  min-height: 32svh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: var(--space-2xl) var(--space-lg) var(--space-lg);
+}
+
+.kicker {
+  font-size: var(--fs-small);
+  letter-spacing: 0.06em;
+  color: var(--color-text-muted);
+  margin-bottom: var(--space-xs);
+}
+
+.introTitle {
+  font-family: var(--font-display);
+  font-size: var(--fs-display-xl);
+  color: var(--color-text);
+}
+
+.stepsWrap {
+  position: relative;
+  max-width: var(--content-max);
+  margin: 0 auto;
+  padding: 0 var(--space-lg);
+}
+
+.lineTrack {
+  position: absolute;
+  top: 0.6em;
+  bottom: 4rem;
+  left: calc(var(--space-lg) + 2.4rem);
+  width: 1.5px;
+  background: color-mix(in srgb, var(--color-secondary) 42%, transparent);
+}
+
+.lineMarker {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1;
+}
+
+.stepSpark {
+  display: inline-block;
+  margin-left: 0.4em;
+  vertical-align: middle;
+}
+
+.lineFill {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--color-primary);
+  box-shadow: 0 0 8px color-mix(in srgb, var(--color-primary) 60%, transparent);
+  transform: scaleY(0);
+  transform-origin: top;
+}
+
+.step {
+  position: relative;
+  display: grid;
+  grid-template-columns: 5rem 1fr;
+  gap: var(--space-lg);
+  padding: var(--space-2xl) 0;
+}
+
+.stepNumber {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: var(--fs-display-lg);
+  color: var(--color-secondary);
+  opacity: 0;
+  transform: translateX(-10px);
+}
+
+.stepBody {
+  opacity: 0;
+  transform: translateY(24px);
+  max-width: 46rem;
+}
+
+.stepTitle {
+  font-family: var(--font-display);
+  font-size: var(--fs-display-lg);
+  color: var(--color-text);
+  margin-bottom: var(--space-sm);
+}
+
+.stepText {
+  color: var(--color-text-muted);
+  max-width: var(--measure);
+}
+
+.stepText + .stepText {
+  margin-top: var(--space-sm);
+}
+
+.handle {
+  font-family: var(--font-display);
+  font-style: italic;
+  color: var(--color-primary);
+}
+
+.checklist {
+  list-style: none;
+  margin: var(--space-sm) 0 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2xs);
+  color: var(--color-text);
+}
+
+.checklist li {
+  display: flex;
+  gap: var(--space-2xs);
+}
+
+.checklist li::before {
+  content: '✦';
+  color: var(--color-glow);
+  filter: drop-shadow(0 0 3px var(--color-glow));
+  flex: none;
+}
+
+.aside {
+  margin-top: var(--space-md);
+  font-size: var(--fs-small);
+  color: var(--color-text-muted);
+  border-left: 1px solid var(--color-secondary-soft);
+  padding-left: var(--space-sm);
+}
+
+.asideLink {
+  color: var(--color-primary);
+}
+
+.paymentRow {
+  display: flex;
+  gap: var(--space-lg);
+  margin-top: var(--space-md);
+}
+
+.paymentOption {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: var(--fs-display-md);
+  color: var(--color-text);
+}
+
+.paymentOption span {
+  display: block;
+  font-family: var(--font-ui);
+  font-style: normal;
+  font-size: var(--fs-micro);
+  color: var(--color-text-muted);
+  margin-top: 0.2em;
+}
+
+/* ---- Sketch composition ----
+   Sits beside the "2 to 4 sketches" paragraph (not stacked below it), so
+   the overlapping sheets can never visually cover any text — they simply
+   live in their own column. */
+.introRow {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-lg);
+  flex-wrap: wrap;
+  margin: var(--space-sm) 0;
+}
+
+.introText {
+  flex: 1 1 18rem;
+}
+
+.sketches {
+  position: relative;
+  flex: 0 1 13rem;
+  width: 13rem;
+  height: 10.5rem;
+  margin-top: var(--space-2xs);
+}
+
+.sketch {
+  position: absolute;
+  width: 60%;
+  aspect-ratio: 3 / 4;
+  will-change: transform;
+  box-shadow: 0 10px 24px color-mix(in srgb, var(--color-dark) 20%, transparent);
+}
+
+.sketch:nth-child(1) {
+  top: 0;
+  left: 0;
+  transform: rotate(-5deg);
+}
+
+.sketch:nth-child(2) {
+  top: 1.2rem;
+  left: 20%;
+  transform: rotate(3deg);
+  z-index: 2;
+}
+
+.sketch:nth-child(3) {
+  top: 0.4rem;
+  left: 38%;
+  transform: rotate(-2deg);
+}
+
+/* ---- Continuation ---- */
+.continuation {
+  max-width: 40rem;
+  margin: var(--space-2xl) auto 0;
+  padding: 0 var(--space-lg);
+  text-align: center;
+  color: var(--color-text-muted);
+  opacity: 0;
+}
+
+@media (max-width: 720px) {
+  .step {
+    grid-template-columns: 1fr;
+    gap: var(--space-sm);
+  }
+
+  .lineTrack {
+    left: var(--space-sm);
+  }
+
+  .stepNumber {
+    padding-left: calc(var(--space-lg));
+  }
+
+  .stepsWrap {
+    padding: 0 var(--space-sm);
+  }
+
+  .introRow {
+    gap: var(--space-md);
+  }
+
+  .sketches {
+    width: 11rem;
+    height: 9rem;
+    margin-top: var(--space-sm);
+  }
+
+  .sketch:nth-child(3) {
+    display: none;
+  }
+
+  .paymentRow {
+    flex-direction: column;
+    gap: var(--space-sm);
+  }
+}

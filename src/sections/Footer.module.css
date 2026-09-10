@@ -1,0 +1,38 @@
+.footer {
+  background: var(--color-dark);
+  color: var(--color-dark-text);
+  padding: var(--space-xl) var(--space-lg) var(--space-lg);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-sm);
+  text-align: center;
+}
+
+.mark {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: var(--fs-display-md);
+  color: var(--color-dark-text);
+}
+
+.links {
+  display: flex;
+  gap: var(--space-md);
+  font-size: var(--fs-small);
+}
+
+.links a {
+  color: var(--color-secondary-soft);
+}
+
+.links a:hover,
+.links a:focus-visible {
+  color: var(--color-primary);
+}
+
+.credit {
+  font-size: var(--fs-micro);
+  color: var(--color-text-muted);
+  margin-top: var(--space-sm);
+}
